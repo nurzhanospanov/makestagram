@@ -19,14 +19,15 @@ class Post : PFObject, PFSubclassing {
         if let image = image {
             
             // we call method, grab the photo from image property, turn it into a PFFile called 'imageFile'
-            let imageData = UIImageJPEGRepresentation(image, 0.8)!
-            let imageFile = PFFile(name: "image.jpg", data: imageData)!
+            guard let imageData = UIImageJPEGRepresentation(image, 0.8) else {return}
+            guard let imageFile = PFFile(name: "image.jpg", data: imageData) else {return}
             
-            //we assign imagefile to self.imageFile and then call saveInBackground to upload the Post
+            
+            //created user and assigned post to currentuser. we assign imagefile to self.imageFile and then call saveInBackgroundWithBlock to upload the Post. nil argument is used because we dont need to know when upload completes
+            
+            user = PFUser.currentUser()
             self.imageFile = imageFile
-            saveInBackground()
-            
-            
+            saveInBackgroundWithBlock(nil)
         }
     
     }
