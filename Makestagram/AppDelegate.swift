@@ -35,7 +35,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("No logged in user :(")
         }
         
+       // return true
+    
+        // set up access control list security feature
+        let acl = PFACL()
+        acl.publicReadAccess = true
+        PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
+        
         return true
+        
     }
     
     func applicationWillResignActive(application: UIApplication) {

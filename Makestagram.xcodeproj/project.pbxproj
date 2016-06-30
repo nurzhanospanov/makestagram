@@ -33,6 +33,8 @@
 		62C8C1F01B06BD6500DC3EA7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C8C1EE1B06BD6500DC3EA7 /* LaunchScreen.xib */; };
 		62C8C1FC1B06BD6500DC3EA7 /* MakestagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C8C1FB1B06BD6500DC3EA7 /* MakestagramTests.swift */; };
 		740B31B91D22FA9F00E1A703 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740B31B81D22FA9F00E1A703 /* Post.swift */; };
+		740B31BD1D2582CC00E1A703 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740B31BC1D2582CC00E1A703 /* PostTableViewCell.swift */; };
+		740B31BF1D25AE6E00E1A703 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740B31BE1D25AE6E00E1A703 /* ParseHelper.swift */; };
 		74D88A191D21D64B0045F584 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D88A181D21D64B0045F584 /* TimelineViewController.swift */; };
 		74D88A1B1D21D87D0045F584 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D88A1A1D21D87D0045F584 /* PhotoViewController.swift */; };
 		74D88A1D1D21D8970045F584 /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D88A1C1D21D8970045F584 /* FriendSearchViewController.swift */; };
@@ -94,6 +96,8 @@
 		62C8C1FA1B06BD6500DC3EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62C8C1FB1B06BD6500DC3EA7 /* MakestagramTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakestagramTests.swift; sourceTree = "<group>"; };
 		740B31B81D22FA9F00E1A703 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		740B31BC1D2582CC00E1A703 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		740B31BE1D25AE6E00E1A703 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		74D88A181D21D64B0045F584 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		74D88A1A1D21D87D0045F584 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		74D88A1C1D21D8970045F584 /* FriendSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 			children = (
 				6277189D1B0A58E800AF5C6E /* ErrorHandling.swift */,
 				6277189E1B0A58E800AF5C6E /* ParseLoginHelper.swift */,
+				740B31BE1D25AE6E00E1A703 /* ParseHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 		62C8C1E21B06BD6500DC3EA7 /* Makestagram */ = {
 			isa = PBXGroup;
 			children = (
+				740B31BA1D25825B00E1A703 /* Views */,
 				740B31B71D22FA4E00E1A703 /* Models */,
 				74D88A1E1D21E2F30045F584 /* PhotoTaking */,
 				6277189C1B0A58E800AF5C6E /* Helpers */,
@@ -257,6 +263,22 @@
 				740B31B81D22FA9F00E1A703 /* Post.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		740B31BA1D25825B00E1A703 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				740B31BB1D25825B00E1A703 /* Timeline */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		740B31BB1D25825B00E1A703 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				740B31BC1D2582CC00E1A703 /* PostTableViewCell.swift */,
+			);
+			path = Timeline;
 			sourceTree = "<group>";
 		};
 		74D88A1E1D21E2F30045F584 /* PhotoTaking */ = {
@@ -448,6 +470,8 @@
 				74D88A1B1D21D87D0045F584 /* PhotoViewController.swift in Sources */,
 				62C8C1E61B06BD6500DC3EA7 /* AppDelegate.swift in Sources */,
 				627718971B0A581700AF5C6E /* FilterViewController.swift in Sources */,
+				740B31BF1D25AE6E00E1A703 /* ParseHelper.swift in Sources */,
+				740B31BD1D2582CC00E1A703 /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
