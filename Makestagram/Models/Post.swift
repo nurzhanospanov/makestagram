@@ -8,39 +8,37 @@
 
 import Foundation
 import Parse
+import Bond
+
 
 // 1 Customized Parse Class for Post (consists of user and image). Use every time you want to create customized Parse class
 
 class Post : PFObject, PFSubclassing {
     
-    var image: UIImage?
+    var image: Observable<UIImage?> = Observable(nil)
     var photoUploadTask: UIBackgroundTaskIdentifier?
     
     
     func uploadPost() {
-        if let image = image {
+        func uploadPost() {
             
-            // we call method, grab the photo from image property, turn it into a PFFile called 'imageFile'
-            guard let imageData = UIImageJPEGRepresentation(image, 0.8) else {return}
-            guard let imageFile = PFFile(name: "image.jpg", data: imageData) else {return}
-            
-            
-            //created user and assigned post to currentuser. we assign imagefile to self.imageFile and then call saveInBackgroundWithBlock to upload the Post. nil argument is used because we dont need to know when upload completes
-            
-            user = PFUser.currentUser()
-            self.imageFile = imageFile
-            
-            // background task long running after closing the app ( boilerplate code for next time!! )
-            
-            photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
-                UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
-            }
-            
-            saveInBackgroundWithBlock() { (success: Bool, error: NSError?) in
-                UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!) // ask Nicolas about this line!!
+            if let image = image.value {
+                
+                guard let imageData = UIImageJPEGRepresentation(image, 0.8) else {return}
+                guard let imageFile = PFFile(name: "image.jpg", data: imageData) else {return}
+                
+                user = PFUser.currentUser()
+                self.imageFile = imageFile
+                
+                photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
+                    UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
+                }
+                
+                saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                    UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
+                }
             }
         }
-    
     }
     
     // 2
@@ -66,5 +64,20 @@ class Post : PFObject, PFSubclassing {
             self.registerSubclass()
         }
         
+    }
+    
+    func downloadImage() {
+        // if image is not downloaded yet, get it
+        // 1
+        if (image.value == nil) {
+            // 2
+            imageFile?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
+                if let data = data {
+                    let image = UIImage(data: data, scale:1.0)!
+                    // 3
+                    self.image.value = image
+                }
+            }
+        }
     }
 }
