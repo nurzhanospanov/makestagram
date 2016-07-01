@@ -39,6 +39,7 @@
 		74D88A1B1D21D87D0045F584 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D88A1A1D21D87D0045F584 /* PhotoViewController.swift */; };
 		74D88A1D1D21D8970045F584 /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D88A1C1D21D8970045F584 /* FriendSearchViewController.swift */; };
 		74D88A201D21E3560045F584 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D88A1F1D21E3560045F584 /* PhotoTakingHelper.swift */; };
+		74FA1A2B1D26DDC60027DCBC /* FriendSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FA1A2A1D26DDC60027DCBC /* FriendSearchTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		74D88A1A1D21D87D0045F584 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		74D88A1C1D21D8970045F584 /* FriendSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchViewController.swift; sourceTree = "<group>"; };
 		74D88A1F1D21E3560045F584 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
+		74FA1A2A1D26DDC60027DCBC /* FriendSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchTableViewCell.swift; sourceTree = "<group>"; };
 		84907E542FC814C8A61491AA /* Pods-Makestagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makestagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Makestagram/Pods-Makestagram.debug.xcconfig"; sourceTree = "<group>"; };
 		CF37DA8695931327FB10B9F2 /* Pods-Makestagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makestagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Makestagram/Pods-Makestagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -268,6 +270,7 @@
 		740B31BA1D25825B00E1A703 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				74FA1A291D26DDA60027DCBC /* Friend Search */,
 				740B31BB1D25825B00E1A703 /* Timeline */,
 			);
 			path = Views;
@@ -288,6 +291,14 @@
 			);
 			name = PhotoTaking;
 			path = ViewControllers/PhotoTaking;
+			sourceTree = "<group>";
+		};
+		74FA1A291D26DDA60027DCBC /* Friend Search */ = {
+			isa = PBXGroup;
+			children = (
+				74FA1A2A1D26DDC60027DCBC /* FriendSearchTableViewCell.swift */,
+			);
+			path = "Friend Search";
 			sourceTree = "<group>";
 		};
 		D40CB651A3656E382796AD9F /* Pods */ = {
@@ -468,6 +479,7 @@
 				74D88A191D21D64B0045F584 /* TimelineViewController.swift in Sources */,
 				74D88A201D21E3560045F584 /* PhotoTakingHelper.swift in Sources */,
 				74D88A1B1D21D87D0045F584 /* PhotoViewController.swift in Sources */,
+				74FA1A2B1D26DDC60027DCBC /* FriendSearchTableViewCell.swift in Sources */,
 				62C8C1E61B06BD6500DC3EA7 /* AppDelegate.swift in Sources */,
 				627718971B0A581700AF5C6E /* FilterViewController.swift in Sources */,
 				740B31BF1D25AE6E00E1A703 /* ParseHelper.swift in Sources */,
