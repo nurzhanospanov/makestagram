@@ -22,6 +22,11 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void) {// 1
         ParseHelper.timelineRequestForCurrentUser(range) { (result: [PFObject]?, error: NSError?) -> Void in
             // 2
+            
+            if let error = error {
+                ErrorHandling.defaultErrorHandler(error)
+            }
+            
             let posts = result as? [Post] ?? []
             // 3
             completionBlock(posts)
@@ -45,7 +50,7 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
         
-        let post = timelineComponent.content[indexPath.row]
+        let post = timelineComponent.content[indexPath.section]
         post.downloadImage()
         post.fetchLikes()
         cell.post = post
@@ -100,16 +105,34 @@ extension TimelineViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        timelineComponent.targetWillDisplayEntry(indexPath.row)
+        timelineComponent.targetWillDisplayEntry(indexPath.section)
     }
     
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerCell = tableView.dequeueReusableCellWithIdentifier("PostHeader") as! PostSectionHeaderView
+        
+        let post = self.timelineComponent.content[section]
+        headerCell.post = post
+        
+        return headerCell
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    
+    }
 }
 
 
 extension TimelineViewController: UITableViewDataSource {
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return self.timelineComponent.content.count
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return timelineComponent.content.count
+        return 1
+        
     
     }
 }
